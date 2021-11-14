@@ -105,14 +105,13 @@ class Automata:
         '''
         graph = Digraph('Automata')
         for state in self.states:
-            if state == self.start and state in self.finish:
-                graph.node(name=str(state), color='purple')
-            elif state == self.start:
-                graph.node(name=str(state), color='red')
-            elif state in self.finish:
-                graph.node(name=str(state), color='green')
+            if state in self.finish:
+                graph.node(name=str(state), color='black', shape='doublecircle')
             else:
-                graph.node(name=str(state), color='black')
+                graph.node(name=str(state), color='black', shape='circle')
+            if state == self.start:
+                graph.node(name='start', shape='plain')
+                graph.edge(tail_name='start', head_name=str(state))
         for src in self.trans.keys():
             for by in self.trans[src].keys():
                 for dst in self.trans[src][by]:
