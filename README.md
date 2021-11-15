@@ -15,6 +15,8 @@
 - Python 3
 - 安装 `prettytable` 与 `graphviz` 库
 
+其中 `graphviz` 除了使用 `pip install graphviz` 安装 Python 模块以外，还需在系统中安装 `graphviz` 工具：[下载链接](http://www.graphviz.org/download/)
+
 使用方法：见 `__main__.py` 中的示例，可直接修改 `__main__.py` 并使用命令 `python -u .` 或 `python -u __main__.py` 运行。（使用命令运行须确保终端位于该仓库目录下）
 
 关于 `graphviz` 输出状态图：在当前目录生成一个 `.gv` 文件和一个 `.pdf` 文件，其中 `.gv` 文件为文本文件，PDF 文件为绘制的状态图。调用状态图输出将自动启动系统默认的 PDF 阅读器以显示状态图。
