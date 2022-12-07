@@ -20,9 +20,10 @@ class Disjoint:
         '''
         查找某个元素的 root (路径压缩)
         '''
-        while self.parent[elem] != self.parent[self.parent[elem]]:
+        while elem != self.parent[elem]:
             self.parent[elem] = self.parent[self.parent[elem]]
-        return self.parent[elem]
+            elem = self.parent[elem]
+        return elem
     
     def join(self, elem1, elem2):
         '''
