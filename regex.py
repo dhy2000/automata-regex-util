@@ -17,7 +17,10 @@ def _simp_regex(): # s only contains basic characters
             if len(buffer) > 1 and buffer[1] == '*':
                 state_count += 1
                 trans.append([last_state, state_count, ''])
-                trans.append([state_count, state_count, buffer[0]])
+                if buffer[0] == 'ɛ':
+                    trans.append([state_count, state_count, ''])
+                else:
+                    trans.append([state_count, state_count, buffer[0]])
                 trans.append([state_count, state_count + 1, ''])
                 state_count += 1
                 last_state = state_count
@@ -25,7 +28,10 @@ def _simp_regex(): # s only contains basic characters
                 buffer.pop(0)
             else: 
                 state_count += 1
-                trans.append([last_state, state_count, buffer[0]])
+                if buffer[0] == 'ɛ':
+                    trans.append([last_state, state_count, ''])
+                else:
+                    trans.append([last_state, state_count, buffer[0]])
                 last_state = state_count
                 buffer.pop(0)
         else:
